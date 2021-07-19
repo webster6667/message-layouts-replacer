@@ -111,6 +111,25 @@ describe('layouts with decline', () => {
         expect(replacedMessage).toEqual(expectedMessage)
     });
 
+    test('decline layout is similar simple replace, success replaced', () => {
+        const messageForReplace = "Осталось minutes['минута', 'минуты', 'минут'], {minutes} это максимум",
+              valueToReplace = '51',
+              arrayOfReplacedSettings: ReplacedSettingsProps[] = [
+                  {
+                      searchLayout: 'minutes',
+                      valueToReplace
+                  },
+                  {
+                      searchLayout: '{minutes}',
+                      valueToReplace
+                  }
+              ],
+              replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
+              expectedMessage = 'Осталось 51 минута, 51 это максимум'
+
+        expect(replacedMessage).toEqual(expectedMessage)
+    });
+
 })
 
 describe('replacing success, when value to replace is array', () => {
