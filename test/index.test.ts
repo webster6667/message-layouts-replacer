@@ -129,7 +129,7 @@ describe('layouts with decline', () => {
         expect(replacedMessage).toEqual(expectedMessage)
     });
     
-    test('single decline layout, success replaced', () => {
+    test('single decline layout ru, success replaced', () => {
         const messageForReplace = "Осталось minutes['минута', 'минуты', 'минут']",
             searchLayout = "minutes",
             valueToReplace = '51',
@@ -141,6 +141,22 @@ describe('layouts with decline', () => {
             ],
             replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
             expectedMessage = 'Осталось 51 минута'
+
+        expect(replacedMessage).toEqual(expectedMessage)
+    });
+
+    test('single decline layout en, success replaced', () => {
+        const messageForReplace = "minutes['minute', 'minutes'] left",
+            searchLayout = "minutes",
+            valueToReplace = '2',
+            arrayOfReplacedSettings: ReplacedSettingsProps[] = [
+                {
+                    searchLayout,
+                    valueToReplace
+                }
+            ],
+            replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
+            expectedMessage = '2 minutes left'
 
         expect(replacedMessage).toEqual(expectedMessage)
     });

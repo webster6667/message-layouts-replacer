@@ -152,11 +152,17 @@ messageLayoutsReplacer('limit is exceeded {limit}', [{
     valueToReplace: '51'
 }]) // => 'limit is exceeded 51'
 
-//layout replace with decline
+//layout replace with decline ru
 messageLayoutsReplacer('Осталось minutes['минута', 'минуты', 'минут']', [{
     searchLayout: 'minutes',
     valueToReplace: '51'
 }]) // => 'Осталось 51 минута'
+
+//layout replace with decline en
+messageLayoutsReplacer('minutes['minute', 'minutes'] left', [{
+    searchLayout: 'minutes',
+    valueToReplace: '2'
+}]) // => '2 minutes left'
 ```
 
 
