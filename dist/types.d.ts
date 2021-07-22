@@ -6,10 +6,10 @@ export declare type ReplacedSettingsProps = {
     /**
      * value that replace searchLayout
      */
-    valueToReplace: string | number | any[];
+    valueToReplace: string | number | null | any[];
     /**
      * should clear searchLayout from messageForReplace, if replace value isArray
      */
     shouldClearSearchLayoutIfReplaceValueIsArray?: boolean;
 };
-export declare type MessageLayoutsReplacer = (messageForReplace: string, arrayOfReplacedSettings: ReplacedSettingsProps[]) => string;
+export declare type MessageLayoutsReplacer = (messageForReplace: string | null, arrayOfReplacedSettings: ReplacedSettingsProps[]) => string;

@@ -7,7 +7,7 @@ export type ReplacedSettingsProps = {
     /**
      * value that replace searchLayout
      */
-    valueToReplace: string | number | any[],
+    valueToReplace: string | number | null | any[],
 
     /**
      * should clear searchLayout from messageForReplace, if replace value isArray
@@ -15,6 +15,6 @@ export type ReplacedSettingsProps = {
     shouldClearSearchLayoutIfReplaceValueIsArray?: boolean
 }
 
-export type MessageLayoutsReplacer = (messageForReplace: string, arrayOfReplacedSettings: ReplacedSettingsProps[]) => string
+export type MessageLayoutsReplacer = (messageForReplace: string | null, arrayOfReplacedSettings: ReplacedSettingsProps[]) => string
 
 

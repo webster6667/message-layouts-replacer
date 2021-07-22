@@ -26,16 +26,24 @@ import {MessageLayoutsReplacer, ReplacedSettingsProps} from './types'
  * }]) // => 'Осталось 51 минута'
  *
  */
-const messageLayoutsReplacer:MessageLayoutsReplacer  = (messageForReplace, arrayOfReplacedSettings) => {
-    const isMessageForReplaceHasValidType = typeof messageForReplace === 'string' || typeof messageForReplace === 'number',
+const messageLayoutsReplacer:MessageLayoutsReplacer  = (messageForReplace = '', arrayOfReplacedSettings) => {
+    const isMessageForReplaceHasValidType = typeof messageForReplace === 'string' || typeof messageForReplace === 'number' || messageForReplace === null,
           isInvalidMessageForReplaceType = !isMessageForReplaceHasValidType
 
+    /**
+     * return empty string, if messageForReplaceIsNull
+     */
+    if (messageForReplace === null) return ''
+    
     /**
      * throw error if message for replace has invalid type
      */
     if (isInvalidMessageForReplaceType) throw new Error('message for replace has invalid type')
-
-    let replacedLayoutsMessage = String(messageForReplace)
+    
+    /**
+     * variable into which put replced values
+     */
+    let replacedLayoutsMessage = messageForReplace
 
     if (replacedLayoutsMessage) {
 
@@ -52,7 +60,12 @@ const messageLayoutsReplacer:MessageLayoutsReplacer  = (messageForReplace, array
                 valueToReplace, 
                 shouldClearSearchLayoutIfReplaceValueIsArray = true
             } = replacedSettingParams
-            
+
+            /**
+             * return messageForReplace if, value to replace isNull
+             */
+            if (valueToReplace === null) return ''
+
             /**
              * regExp for found layouts than need decline
              */

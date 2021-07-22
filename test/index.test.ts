@@ -20,6 +20,57 @@ describe('simple layouts success replaced', () => {
         expect(replacedMessage).toEqual(expectedMessage)
     });
 
+    test('single layout, valueToReplace: null success replaced', () => {
+        const messageForReplace = 'limit is exceeded, limit is {limit}',
+            searchLayout = '{limit}',
+            valueToReplace = null,
+            arrayOfReplacedSettings: ReplacedSettingsProps[] = [
+                {
+                    searchLayout,
+                    valueToReplace
+                }
+            ],
+            replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
+            expectedMessage = messageForReplace
+
+        
+        expect(replacedMessage).toEqual(expectedMessage)
+    });
+
+    test('single layout, messageForReplace: null success replaced', () => {
+        const messageForReplace = null,
+            searchLayout = '{limit}',
+            valueToReplace = null,
+            arrayOfReplacedSettings: ReplacedSettingsProps[] = [
+                {
+                    searchLayout,
+                    valueToReplace
+                }
+            ],
+            replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
+            expectedMessage = ''
+
+
+        expect(replacedMessage).toEqual(expectedMessage)
+    });
+
+    test('single layout, return messageForReplace, if layout not found', () => {
+        const messageForReplace = 'limit is exceeded',
+            searchLayout = '{limit}',
+            valueToReplace = null,
+            arrayOfReplacedSettings: ReplacedSettingsProps[] = [
+                {
+                    searchLayout,
+                    valueToReplace
+                }
+            ],
+            replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
+            expectedMessage = messageForReplace
+
+
+        expect(replacedMessage).toEqual(expectedMessage)
+    });
+
     test('group layout, success replaced', () => {
         const messageForReplace = 'limit is exceeded, limit is {limit}, {written} was written',
               arrayOfReplacedSettings: ReplacedSettingsProps[] = [
@@ -61,6 +112,23 @@ describe('simple layouts success replaced', () => {
 
 describe('layouts with decline', () => {
 
+    test('single decline layout, return messageForReplace, if layout not found', () => {
+        const messageForReplace = "Осталось совсем немного",
+            searchLayout = "minutes",
+            valueToReplace = '51',
+            arrayOfReplacedSettings: ReplacedSettingsProps[] = [
+                {
+                    searchLayout,
+                    valueToReplace
+                }
+            ],
+            replacedMessage = messageLayoutsReplace(messageForReplace, arrayOfReplacedSettings),
+            expectedMessage = 'Осталось совсем немного'
+
+        
+        expect(replacedMessage).toEqual(expectedMessage)
+    });
+    
     test('single decline layout, success replaced', () => {
         const messageForReplace = "Осталось minutes['минута', 'минуты', 'минут']",
             searchLayout = "minutes",

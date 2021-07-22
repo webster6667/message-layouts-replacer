@@ -69,6 +69,8 @@ const messageAfterReplace = messageLayoutsReplacer('limit is exceeded {limit}', 
      valueToReplace: '51'
 }])
 
+console.log(messageAfterReplace) //'limit is exceeded 51'
+
 ```
 
 #### Node
@@ -82,6 +84,8 @@ const messageAfterReplace = messageLayoutsReplacer('limit is exceeded {limit}', 
     searchLayout: '{limit}',
     valueToReplace: '51'
 }])
+
+console.log(messageAfterReplace) //'limit is exceeded 51'
 
 ```
 
@@ -97,6 +101,9 @@ Connect to html file ```<script src="https://cdn.jsdelivr.net/npm/message-layout
         searchLayout: '{limit}',
         valueToReplace: '51'
     }])
+
+    console.log(messageAfterReplace) //'limit is exceeded 51'
+
 </script>
 ```
 
@@ -115,6 +122,7 @@ requirejs(['message-layouts-replacer'], function(messageLayoutsReplacer) {
         valueToReplace: '51'
     }])
 
+    console.log(messageAfterReplace) //'limit is exceeded 51'
 });
 ```
 
