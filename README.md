@@ -4,7 +4,7 @@
 
 # message-layouts-replacer
 
-> Function than replace layouts to values
+> Function than replace layouts to values, with decline
 
 [![npm version](https://badge.fury.io/js/message-layouts-replacer.svg)](https://www.npmjs.com/package/message-layouts-replacer)
 [![](https://data.jsdelivr.com/v1/package/npm/message-layouts-replacer/badge)](https://www.jsdelivr.com/package/npm/message-layouts-replacer)
